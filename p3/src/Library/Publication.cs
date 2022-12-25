@@ -28,6 +28,16 @@ namespace Ucu.Poo.Defense
         {
             this.items.Add(item);
         }
+        public double Total()
+        {
+            double costoFinal = 0;
+
+            foreach (PublicationItem item in items)
+            {
+               costoFinal += (item.Price) * (item.Quantity);
+            }
+            return costoFinal;
+        }
 
         public void RemoveItem(PublicationItem item)
         {
