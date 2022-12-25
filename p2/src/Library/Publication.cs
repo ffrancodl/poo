@@ -33,5 +33,18 @@ namespace Ucu.Poo.Defense
         {
             this.items.Remove(item);
         }
+
+        StringBuilder cadena = new StringBuilder();
+        public string AsText()
+        {
+            foreach(PublicationItem item in items)
+            {
+                cadena.Append(item.Material.Name);
+                cadena.Append(item.Price.ToString());
+                cadena.Append(item.Quantity.ToString());
+                
+            }
+            return cadena.ToString();
+        }
     }
 }
