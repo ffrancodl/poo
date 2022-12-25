@@ -2,7 +2,7 @@ using System;
 
 namespace Ucu.Poo.Defense
 {
-    public class PublicationDiscount
+    public class PublicationDiscount : IPublicationItem
     {
         private int amount;
 
@@ -14,8 +14,17 @@ namespace Ucu.Poo.Defense
             }
             set
             {
-                this.amount = value;
+                if (value < 0)
+                {
+                    this.amount = value;
+                }
+
+                else
+                {
+                    throw new ArgumentException("El descuento no puede ser positivo.");
+                }
             }
+
         }
 
         public PublicationDiscount(int amount)
